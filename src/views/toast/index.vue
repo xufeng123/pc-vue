@@ -24,9 +24,7 @@ export default {
       this.$message[type]('消息内容')
     },
     openBox() {
-      confirm('提示内容', '提示title', {
-        type: 'warning' // icon类型
-      }).then(() => {
+      confirm('提示内容', '提示title').then(() => {
         this.$message.success('确认')
       }).catch(() => {
         this.$message.warning('取消')
