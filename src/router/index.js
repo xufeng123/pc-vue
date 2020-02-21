@@ -14,7 +14,6 @@ import Form from '@/views/form/index'
 import FormReg from '@/views/form-reg/index'
 import Time from '@/views/time/index'
 import Toast from '@/views/toast/index'
-import Button from '@/views/button/index'
 import MessageBox from '@/views/message-box/index'
 import Menu1 from '@/views/nested/menu1/index'
 import Menu11 from '@/views/nested/menu1/menu1-1'
@@ -24,6 +23,9 @@ import Menu122 from '@/views/nested/menu1/menu1-2/menu1-2-2'
 import Menu13 from '@/views/nested/menu1/menu1-3'
 import Menu2 from '@/views/nested/menu2/index'
 import TableTest from '@/views/table/table-test'
+
+import Button from '@/views/button/index'
+import Dialog from '@/views/dialog/index'
 
 export const constantRoutes = [
   { path: '/login', component: Login, hidden: true },
@@ -135,17 +137,30 @@ export const constantRoutes = [
   },
 
   {
-    path: '/message-box',
+    path: '/dialog',
     component: Layout,
     children: [
       {
-        path: 'message-box',
-        name: 'messageBox',
-        component: MessageBox,
-        meta: { title: 'message-box', icon: 'form' }
+        path: 'dialog',
+        name: 'Dialog',
+        component: Dialog,
+        meta: { title: '弹框', icon: 'form' }
       }
     ]
   },
+
+  // {
+  //   path: '/message-box',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'message-box',
+  //       name: 'messageBox',
+  //       component: MessageBox,
+  //       meta: { title: 'message-box', icon: 'form' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/nested',

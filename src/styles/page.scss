@@ -1,0 +1,47 @@
+@import "~@/styles/variables.scss";
+
+// 确认框样式
+.confirm-class{
+  width: 400px;
+  padding-bottom: 0 !important;
+  .el-message-box__header{
+    padding: 24px 0 24px 26px !important;
+    border-radius:4px 4px 0 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .el-message-box__headerbtn{
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .el-message-box__content{
+    text-align: justify;
+    padding: 10px 26px;
+    color: #23253A;
+    font-size: 16px;
+  }
+  .el-message-box__btns{
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 30px 24px 0;
+    .el-button{
+      display: inline-block;
+      padding: 9px 15px;
+      height:32px;
+      border-radius:4px;
+      font-size: 14px;
+      &:nth-of-type(1) {
+        margin-right: 12px;
+      }
+      &:nth-of-type(2) {
+        color: #fff;
+        margin-left: 0;
+      }
+    }
+  }
+}

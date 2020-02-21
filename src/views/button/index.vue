@@ -16,7 +16,7 @@
 import vButton from '@/vendor/button/v-button'
 
 export default {
-  name: 'btnPage',
+  name: 'BtnPage',
   components: { vButton },
   data() {
     return {
@@ -35,7 +35,7 @@ export default {
       setTimeout(() => {
         console.warn('现在可以点击')
         this.btnFlag = false
-      }, 2000);
+      }, 2000)
     }
   }
 }
