@@ -72,9 +72,6 @@ export default {
 
 <style lang="scss">
   .page-form {
-    h3 {
-      margin: 20px 0;
-    }
     .input-width {
       width: 300px;
     }

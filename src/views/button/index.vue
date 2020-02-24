@@ -66,9 +66,6 @@ export default {
 
   .btn-page {
     width: 100%;
-    h3 {
-      margin: 20px 0;
-    }
     .btn-group {
       @include flex;
       .btn1 {
