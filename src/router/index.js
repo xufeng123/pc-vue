@@ -39,32 +39,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/time',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Time',
-        component: Time,
-        meta: { title: '时间选择', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/tost',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Toast',
-        component: Toast,
-        meta: { title: '消息提示', icon: 'form' }
-      }
-    ]
-  },
-
-  {
     path: '/button',
     component: Layout,
     children: [
@@ -86,6 +60,32 @@ export const constantRoutes = [
         name: 'Dialog',
         component: Dialog,
         meta: { title: '弹框', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/time',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Time',
+        component: Time,
+        meta: { title: '时间选择', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/tost',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Toast',
+        component: Toast,
+        meta: { title: '消息提示', icon: 'form' }
       }
     ]
   },

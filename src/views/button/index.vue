@@ -1,13 +1,40 @@
 <template>
   <div class="btn-page app-container">
-    <div class="btn1">
-      <v-button name="禁止提交" type="normal" disabled @click="handleActive1" />
+    <h3>基础用法</h3>
+    <div class="btn-group">
+      <div class="btn1">
+        <v-button name="篮框白底" type="normal" />
+      </div>
+      <div class="btn1">
+        <v-button name="蓝底白字" type="normal-bg" />
+      </div>
+      <div class="btn1">
+        <v-button name="删除按钮" type="del" />
+      </div>
+      <div class="btn1">
+        <v-button name="特殊蓝色" type="sb" />
+      </div>
     </div>
-    <div class="btn2">
-      <v-button name="可点击" type="normal-bg" @click="handleActive2" />
+    <h3>禁用状态</h3>
+    <div class="btn-group">
+      <div class="btn1">
+        <v-button name="篮框白底" disabled type="normal" />
+      </div>
+      <div class="btn1">
+        <v-button name="蓝底白字" disabled type="normal-bg" />
+      </div>
+      <div class="btn1">
+        <v-button name="删除按钮" disabled type="del" />
+      </div>
+      <div class="btn1">
+        <v-button name="特殊蓝色" disabled type="sb" />
+      </div>
     </div>
-    <div class="btn3">
-      <v-button name="防止重复提交" type="cancel" :disabled="btnFlag" @click="handleActive3" />
+    <h3>防重复点击</h3>
+    <div class="btn-group">
+      <div class="btn1">
+        <v-button name="篮框白底" type="normal" :disabled="btnFlag" @click="handleActive" />
+      </div>
     </div>
   </div>
 </template>
@@ -24,16 +51,9 @@ export default {
     }
   },
   methods: {
-    handleActive1() {
-      console.warn('已点击')
-    },
-    handleActive2() {
-      console.warn('已点击')
-    },
-    handleActive3() {
+    handleActive() {
       this.btnFlag = true
       setTimeout(() => {
-        console.warn('现在可以点击')
         this.btnFlag = false
       }, 2000)
     }
@@ -42,15 +62,23 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "@/styles/mixin.scss";
+
   .btn-page {
     width: 100%;
-    .btn1, .btn2, .btn3 {
-      width: 100px;
-      height: 50px;
-      margin-bottom: 15px;
+    h3 {
+      margin: 20px 0;
     }
-    .btn3 {
-      width: 130px;
+    .btn-group {
+      @include flex;
+      .btn1 {
+        width: 100px;
+        height: 40px;
+        margin-right: 20px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
     }
   }
 </style>

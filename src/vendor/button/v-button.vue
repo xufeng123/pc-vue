@@ -48,6 +48,7 @@ export default {
         background: #BBBDC4;
       }
       &-disabled {
+        opacity: 0.3;
         &:hover {
           cursor: not-allowed;
         }
@@ -61,6 +62,7 @@ export default {
         background: #E6F1FA;
       }
       &-disabled {
+        opacity: 0.3;
         &:hover {
           cursor: not-allowed;
         }
@@ -74,6 +76,7 @@ export default {
         background: #1B90E8;
       }
       &-disabled {
+        opacity: 0.3;
         &:hover {
           cursor: not-allowed;
         }
@@ -87,14 +90,24 @@ export default {
         background: #fFECE8;
       }
       &-disabled {
+        opacity: 0.3;
         &:hover {
           cursor: not-allowed;
         }
       }
     }
-    &__sb { //
+    &__sb { // 特殊蓝色
       color: #0068B6;
       background: #D3E6F5;
+      &:hover {
+        background: #D3E6F5;
+      }
+      &-disabled {
+        opacity: 0.3;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
     }
     &:active {
       opacity: 0.7;
