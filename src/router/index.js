@@ -20,6 +20,7 @@ import Menu13 from '@/views/nested/menu1/menu1-3'
 import Menu2 from '@/views/nested/menu2/index'
 
 import Button from '@/views/button/index'
+import Form from '@/views/form/index'
 import Dialog from '@/views/dialog/index'
 
 export const constantRoutes = [
@@ -43,10 +44,23 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'button',
+        path: '/button',
         name: 'Button',
         component: Button,
         meta: { title: '按钮', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/form',
+    component: Layout,
+    children: [
+      {
+        path: '/form',
+        name: 'Form',
+        component: Form,
+        meta: { title: 'form表单', icon: 'form' }
       }
     ]
   },
@@ -56,7 +70,7 @@ export const constantRoutes = [
     component: Layout,
     children: [
       {
-        path: 'dialog',
+        path: '/dialog',
         name: 'Dialog',
         component: Dialog,
         meta: { title: '弹框', icon: 'form' }

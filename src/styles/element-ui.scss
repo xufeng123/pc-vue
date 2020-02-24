@@ -43,3 +43,9 @@
     display: block
   }
 }
+
+.el-input__inner {
+  &::-webkit-input-placeholder {
+    color: #C0C4CC !important;
+  }
+}
