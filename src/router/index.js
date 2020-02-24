@@ -8,10 +8,6 @@ import Layout from '@/layout'
 import Login from '@/views/login/index'
 import BadPage from '@/views/404'
 import Dashboard from '@/views/dashboard/index'
-import Table from '@/views/table/index'
-import Tree from '@/views/tree/index'
-import Form from '@/views/form/index'
-import FormReg from '@/views/form-reg/index'
 import Time from '@/views/time/index'
 import Toast from '@/views/toast/index'
 // import MessageBox from '@/views/message-box/index'
@@ -22,7 +18,6 @@ import Menu121 from '@/views/nested/menu1/menu1-2/menu1-2-1'
 import Menu122 from '@/views/nested/menu1/menu1-2/menu1-2-2'
 import Menu13 from '@/views/nested/menu1/menu1-3'
 import Menu2 from '@/views/nested/menu2/index'
-import TableTest from '@/views/table/table-test'
 
 import Button from '@/views/button/index'
 import Dialog from '@/views/dialog/index'
@@ -41,60 +36,6 @@ export const constantRoutes = [
       component: Dashboard,
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
-  },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: Table,
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'table-test',
-        name: 'TableTest',
-        component: TableTest,
-        meta: { title: 'TableTest', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: Tree,
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: Form,
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/form-reg',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'FormReg',
-        component: FormReg,
-        meta: { title: 'Form-reg', icon: 'form' }
-      }
-    ]
   },
 
   {
@@ -148,19 +89,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-  // {
-  //   path: '/message-box',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'message-box',
-  //       name: 'messageBox',
-  //       component: MessageBox,
-  //       meta: { title: 'message-box', icon: 'form' }
-  //     }
-  //   ]
-  // },
 
   {
     path: '/nested',
