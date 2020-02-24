@@ -9,7 +9,6 @@ import Login from '@/views/login/index'
 import BadPage from '@/views/404'
 import Dashboard from '@/views/dashboard/index'
 import Time from '@/views/time/index'
-import Toast from '@/views/toast/index'
 // import MessageBox from '@/views/message-box/index'
 import Menu1 from '@/views/nested/menu1/index'
 import Menu11 from '@/views/nested/menu1/menu1-1'
@@ -87,19 +86,6 @@ export const constantRoutes = [
         name: 'Time',
         component: Time,
         meta: { title: '时间选择', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/tost',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Toast',
-        component: Toast,
-        meta: { title: '消息提示', icon: 'form' }
       }
     ]
   },
