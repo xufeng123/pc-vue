@@ -1,5 +1,5 @@
 <template>
-  <div :class="['v-button', 'v-button__' + type, disabled ? 'v-button__' + type + '-disabled' : '']" @click.stop="handelClick">
+  <div :class="['v-button', 'v-button__' + size, 'v-button__' + type, disabled ? 'v-button__' + type + '-disabled' : '']" @click.stop="handelClick">
     <div class="v-button__name">{{ name }}</div>
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
     disabled: { // 这个状态也可以做防重复提交
       type: Boolean,
       default: false
+    },
+    size: { // 按钮大小
+      type: String, // medium / normal / small /
+      default: ''
     }
   },
   methods: {
@@ -40,6 +44,18 @@ export default {
     align-items: center;
     border-radius: 4px;
     cursor: pointer;
+    &__medium {
+      padding: 13px 16px;
+      font-size: 14px;
+    }
+    &__normal {
+      padding: 9px 16px;
+      font-size: 14px;
+    }
+    &__small {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
     &__cancel {
       color: #A8AAB1;
       background:rgba(226,228,230,1);

@@ -2,17 +2,17 @@
   <div class="btn-page app-container">
     <h3>基础用法</h3>
     <div class="btn-group">
-      <div class="btn1">
-        <v-button name="篮框白底" type="normal" />
+      <div>
+        <v-button name="small" type="normal" size="small" />
+      </div>
+      <div>
+        <v-button name="normal" type="normal-bg" size="normal" />
+      </div>
+      <div>
+        <v-button name="medium" type="del" size="medium" />
       </div>
       <div class="btn1">
-        <v-button name="蓝底白字" type="normal-bg" />
-      </div>
-      <div class="btn1">
-        <v-button name="删除按钮" type="del" />
-      </div>
-      <div class="btn1">
-        <v-button name="特殊蓝色" type="sb" />
+        <v-button name="自定义" type="sb" />
       </div>
     </div>
     <h3>禁用状态</h3>
@@ -68,13 +68,15 @@ export default {
     width: 100%;
     .btn-group {
       @include flex;
-      .btn1 {
-        width: 100px;
-        height: 40px;
+      >div {
         margin-right: 20px;
         &:last-child {
           margin-right: 0;
         }
+      }
+      .btn1 {
+        width: 100px;
+        height: 40px;
       }
     }
   }
