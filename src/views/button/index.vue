@@ -3,10 +3,10 @@
     <h3>基础用法</h3>
     <div class="btn-group">
       <div>
-        <v-button name="small" type="normal" size="small" />
+        <v-button name="mini" type="normal" size="mini" />
       </div>
       <div>
-        <v-button name="normal" type="normal-bg" size="normal" />
+        <v-button name="small" type="normal-bg" size="small" />
       </div>
       <div>
         <v-button name="medium" type="del" size="medium" />
@@ -77,6 +77,7 @@ export default {
       .btn1 {
         width: 100px;
         height: 40px;
+        // line-height: 40px;
       }
     }
   }

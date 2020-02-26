@@ -37,11 +37,12 @@ export default {
 
 <style lang="scss">
   .v-button {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: inherit;
+    height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
     border-radius: 4px;
     cursor: pointer;
     &__medium {

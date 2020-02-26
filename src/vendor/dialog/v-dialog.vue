@@ -8,7 +8,7 @@
       :close-on-click-modal="false"
       @close="close"
     >
-      <span v-if="ctxMsg">{{ ctxMsg }}</span>
+      <span v-if="ctxMsg" v-html="ctxMsg"></span>
       <slot name="dialogCtx"></slot>
       <div slot="footer" class="v-message-box__footer">
         <div v-if="isCanShow" class="cancel-btn btn-margin">
