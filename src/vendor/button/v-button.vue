@@ -21,7 +21,7 @@ export default {
       default: false
     },
     size: { // 按钮大小
-      type: String, // medium / normal / small /
+      type: String, // medium / small / mini
       default: ''
     }
   },
@@ -48,11 +48,11 @@ export default {
       padding: 13px 16px;
       font-size: 14px;
     }
-    &__normal {
+    &__small {
       padding: 9px 16px;
       font-size: 14px;
     }
-    &__small {
+    &__mini {
       padding: 6px 12px;
       font-size: 12px;
     }

@@ -8,7 +8,7 @@
 | 属性       |     作用       |      type      |  可选值 | 默认值 |
 | :---:     |     :----:      |    :----:  |    :----:  |    :----:  |
 | `name`      |    按钮名称      |  `String`     | —     | —     |
-| `sizi`      |    按钮大小      |  `String`     | `medium(注：padding: 13px 16px) / small(注：padding: 6px 12px) / normal(注：padding: 9px 16px)` |  —     |
+| `sizi`      |    按钮大小      |  `String`     | `medium(注：padding: 13px 16px) / mini(注：padding: 6px 12px) / small(注：padding: 9px 16px)` |  —     |
 | `type`      |    按钮的颜色     |  `String`     | `normal （注：篮框白底）/ normal-bg（注：蓝底白字） / del（注：橙色） / sb（注：淡蓝）` |  `normal`    |
 | `disabled`  |    不可点击的状态  |   `Boolean`   |  —     | —     |
 #### 使用方法
