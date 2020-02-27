@@ -18,6 +18,9 @@
         <el-form-item label="不允许输入特殊符号和中文" prop="noZh">
           <el-input v-model="ruleForm.noZh" v-reg-input:noZh placeholder="不允许输入特殊符号和中文" class="input-width"></el-input>
         </el-form-item>
+        <el-form-item label="正则匹配" prop="test">
+          <el-input v-model="ruleForm.test" placeholder="手机号正则匹配" v-reg-input:num class="input-width"></el-input>
+        </el-form-item>
       </el-form>
     </div>
     <div class="form-btn">
@@ -32,13 +35,27 @@ import vButton from '@/vendor/button/v-button'
 export default {
   components: { vButton },
   data() {
+    const checkInput = (rule, value, callback) => {
+      if (value) {
+        // const reg = /^((-?)[0-9]{1,2},)*((-?)[0-9]{1,2})$/ // 1,2,3,-1,-11
+        const reg = /^[1][0-9]{10}$/ // 手机号
+        if (reg.test(value)) {
+          callback()
+        } else {
+          return callback(new Error('请输入手机号正确的格式'))
+        }
+      } else {
+        callback()
+      }
+    }
     return {
       ruleForm: {
         number: '',
         point: '',
         noNum: '',
         spl: '',
-        noZh: ''
+        noZh: '',
+        test: ''
       },
       rules: {
         point: [
@@ -52,6 +69,9 @@ export default {
         ],
         noZh: [
           { required: true, message: '请输入', trigger: 'blur' }
+        ],
+        test: [
+          { validator: checkInput, trigger: 'blur' }
         ]
       }
     }
