@@ -1,10 +1,12 @@
 /**
- * 限定输入
+ * input输入框限定输入
  * num: 只允许输入数字
  * point: 允许输入两位小数
  * NAN: 非数字
  * spl: 不允许输入特殊符号
  * noZh: 不允许输入特殊符号和中文
+ * minus: 允许输入正负数
+ * minusPoint: 允许输入两位小数的正负数
  */
 const RegInput = {
   inserted(el, binding) {
@@ -20,8 +22,12 @@ const RegInput = {
       reg = /^[a-zA-Z0-9_\u4e00-\u9fa5]*/g
     } else if (binding.arg === 'noZh') {
       reg = /^[a-zA-Z0-9]*/g
+    } else if (binding.arg === 'minus') {
+      reg = /^(-?)\d*/g
+    } else if (binding.arg === 'minusPoint') {
+      reg = /^(-?)\d*(\.?\d{0,2})/g
     }
-    el.addEventListener('input', function(){
+    el.addEventListener('input', function() {
       input.value = input.value.match(reg, '')
     })
   }
