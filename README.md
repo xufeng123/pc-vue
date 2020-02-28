@@ -26,6 +26,9 @@
   </div>
 ```
 ### 2.弹框（v-dialog）
+
+## Attributes
+
 | 属性       |     作用       |      type      |   可选值 | 默认值 |
 | :---:     |     :----:      |    :----:  |    :----:  |    :----:  |
 | `titleMsg`  | 标题 |  `String`  | - | - |
@@ -37,6 +40,17 @@
 | `conText` | 确定功能按钮名称 | `String` |  - | `确定` |
 | `isConShow` | 是否显示确认按钮 | `Boolean` |  - | `true` |
 | `isShowClose` | 关闭按钮是否显示 | `Boolean` |  - | `true` |
+
+## Slot
+| name       |     说明       |
+| :---:     |     :----:      |
+| dialogCtx | Dialog 的内容 |
+
+## Events
+| name       |     说明      |
+| :---:     |     :----:      |
+| close | Dialog 关闭按钮的回调 |
+| click | Dialog 确定按钮的回调 |
 
 #### 使用方法
 
@@ -53,6 +67,8 @@
   />
 ```
 ### 3.确认弹框（v-confirm）
+
+## Attributes
 
 | 属性       |   作用     |    type   |   可选值 | 默认值 |
 | :---:     |   :----:   |  :----:  |   :----:   |  :----:  |
@@ -120,4 +136,30 @@
   * `checkCard`(证件号校验（只允许输入数字，字母）)
   * `checkIdCard`(身份证校验)
   import { checkMobile } from '@/regular/index'
+```
+
+### 8.时间组件
+
+#### Attributes
+
+| 属性       |   作用     |    type   |   可选值 | 默认值 |
+| :---:     |   :----:   |  :----:  |   :----:   |  :----:  |
+| `pickerOptions`  |    时间选择范围  |  `Object`  | - | - |
+| `formatType`   |  返回的时间格式  | `String`   | - | `yyyy-MM-dd` |
+
+#### Events
+
+| Event Name |   Description |    Parameters   |
+| :---:     |   :----:   |  :----:  |
+| `dateChange`  |  用户确认选定的值时触发  |  `function`  |
+
+#### 使用方法
+
+```html
+  <v-date-picker
+    @date-change="timeRangeChange"
+  />
+```
+```js
+  import vDatePicker from '@/vendor/time/v-date-picker'
 ```
