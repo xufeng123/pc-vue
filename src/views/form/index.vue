@@ -19,7 +19,7 @@
           <el-input v-model="ruleForm.noZh" v-reg-input:noZh placeholder="不允许输入特殊符号和中文" class="input-width"></el-input>
         </el-form-item>
         <el-form-item label="正则匹配" prop="phone">
-          <el-input v-model="ruleForm.phone" placeholder="手机号正则匹配" v-reg-input:num class="input-width"></el-input>
+          <el-input v-model="ruleForm.phone" v-reg-input:num placeholder="手机号正则匹配" class="input-width"></el-input>
         </el-form-item>
         <el-form-item label="正则匹配" prop="letter">
           <el-input v-model="ruleForm.letter" placeholder="匹配所有字母" class="input-width"></el-input>
@@ -99,9 +99,9 @@ export default {
     submit() {
       this.$refs.form.validate((valid) => {
         if (valid) {
-          alert('submit!');
+          alert('submit!')
         } else {
-          return false;
+          return false
         }
       })
     }

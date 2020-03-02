@@ -20,6 +20,7 @@ import Button from '@/views/button/index'
 import Form from '@/views/form/index'
 import Dialog from '@/views/dialog/index'
 import Time from '@/views/time/index'
+import Table from '@/views/table/index'
 
 export const constantRoutes = [
   { path: '/login', component: Login, hidden: true },
@@ -85,6 +86,19 @@ export const constantRoutes = [
         name: 'Time',
         component: Time,
         meta: { title: '时间选择', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/table',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Table',
+        component: Table,
+        meta: { title: 'table', icon: 'form' }
       }
     ]
   },
