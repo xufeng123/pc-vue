@@ -32,7 +32,7 @@
         :special-keys="specialKeys"
       >
         <div slot="id" slot-scope="item" class="btn-div">
-          <v-button name="点击" size="small" @click="getInfo(item)"></v-button>
+          <v-button name="点击" size="mini" @click="getInfo(item)"></v-button>
         </div>
       </v-table>
     </div>
