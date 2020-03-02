@@ -1,4 +1,4 @@
-import RegInput from './modules/reg-input'
+import RegInput from './reg/index'
 
 export {
   RegInput
