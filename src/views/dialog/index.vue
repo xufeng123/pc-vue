@@ -10,6 +10,10 @@
           <h3>内嵌表单</h3>
           <v-button name="点击打开内嵌Form表单Dialog" type="normal" size="small" @click="getFormDialog" />
         </li>
+        <li class="li-boder">
+          <h3>内嵌Table</h3>
+          <v-button name="点击打开内嵌Table的Dialog" type="normal" size="small" @click="getTableDialog" />
+        </li>
       </ul>
     </div>
     <div class="dialog-demo">
@@ -43,6 +47,23 @@
           </el-form>
         </div>
       </v-dialog>
+      <v-dialog
+        title-msg="内嵌Table表单Dialog"
+        box-width="320px"
+        :is-show="isTableShow"
+        :is-can-show="false"
+        @click="confirmTable"
+      >
+        <div slot="dialogCtx">
+          <v-table
+            table-key="table1"
+            :list-loading="false"
+            :table-row="tableRow"
+            :list-data="tableData"
+          >
+          </v-table>
+        </div>
+      </v-dialog>
     </div>
   </div>
 </template>
@@ -50,17 +71,47 @@
 <script>
 import vButton from '@/vendor/button/v-button'
 import vDialog from '@/vendor/dialog/v-dialog'
+import vTable from '@/vendor/table/v-table'
 
 export default {
-  components: { vButton, vDialog },
+  components: { vButton, vDialog, vTable },
   data() {
     return {
       isShow: false,
       isFormShow: false,
+      isTableShow: false,
       form: {
         name: '',
         region: ''
-      }
+      },
+      tableRow: [
+        {
+          name: 'id',
+          props: 'id'
+        },
+        {
+          name: 'name',
+          props: 'name'
+        }
+      ],
+      tableData: [
+        {
+          id: 1,
+          name: 'name1'
+        },
+        {
+          id: 2,
+          name: 'name2'
+        },
+        {
+          id: 3,
+          name: 'name3'
+        },
+        {
+          id: 4,
+          name: 'name4'
+        }
+      ]
     }
   },
   methods: {
@@ -70,6 +121,9 @@ export default {
     getFormDialog() {
       this.isFormShow = true
     },
+    getTableDialog() {
+      this.isTableShow = true
+    },
     confirmForm() {
       this.isFormShow = false
     },
@@ -78,6 +132,9 @@ export default {
     },
     closeLogDialog() { // 关闭
       this.isShow = false
+    },
+    confirmTable() {
+      this.isTableShow = false
     }
   }
 }

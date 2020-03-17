@@ -10,7 +10,7 @@
         format-type="timestamp"
         @date-change="timeRangeChange1"
       />
-      <h3>2.时间组件,时间有时间范围</h3>
+      <h3>3.时间组件,时间有时间范围</h3>
       <v-date-picker
         :picker-options="pickerOptions"
         @date-change="timeRangeChange2"
