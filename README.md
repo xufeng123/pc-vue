@@ -163,3 +163,53 @@
 ```js
   import vDatePicker from '@/vendor/time/v-date-picker'
 ```
+### 9.table组件(v-table)
+
+#### Attributes
+| 属性       |   作用     |    type   |   可选值 | 默认值 |
+| :---:     |   :----:   |  :----:  |   :----:   |  :----:  |
+| `tableRow` | `表头信息` | `Array` | -- | --|
+| `listData` | `显示的数据` | `Array` | -- | -- |
+| `listLoading` | `loading的显示` | `Boolean` | - | `false` |
+| `tableKey` | `key` | `String` | -- | `vTable` |
+| `tHeight` | `高度` | `String` | -- | `null` |
+| `tMaxHeight` | `最大高度` | `String` | -- | -- |
+| `isShowBox` | `是否显示Checkbox` | `Boolean` | -- | `false` |
+| `specialKeys` | `特殊内容的设置td` | `Array` | -- | -- |
+| `specialRows` | `特殊表头的单独设置` | `Array` | -- | -- |
+
+#### tableRow
+```js
+  tableRow = [
+    {
+      name: '表头名称',
+      props: '对应的接口属性字段',
+      width: '宽度',
+      minWidth: '最小宽度',
+      fixed: '固定（可选填）'
+    }
+  ]
+  // width 和 minWidth 二者选其一
+```
+#### specialKeys 特殊内容的设置td
+```js
+  specialKeys = ['name1', 'name2']
+```
+```html
+  <div slot="name1">内容1</div>
+  <div slot="name2">内容2</div>
+```
+#### specialRows 特殊表头的单独设置
+```js
+  specialRows = ['name11', 'name22']
+```
+```html
+  <div slot="name1">内容1</div>
+  <div slot="name2">内容2</div>
+```
+## specialKeys 和 specialRows 不可以一样的值
+
+#### event事件
+| Event Name |   Description |    Parameters   |
+| :---:     |   :----:   |  :----:  |
+| `handle-check`  |  用户点击checkBox时触发  |  `function`  |

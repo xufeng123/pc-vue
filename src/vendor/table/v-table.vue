@@ -17,11 +17,8 @@
       <el-table-column v-for="(row, index) in tableRow" :key="index" :label="row.name" :type="row.type" :min-width="row.minWidth" :width="row.width" :fixed="row.fixed" align="center">
         <!-- 表头的单独设置 -->
         <template v-for="(item, idx) in specialRows" slot="header">
-          <div v-if="item.props == row.props" :key="idx" class="item">
-            <span>{{ row.name }}</span>
-            <el-tooltip v-if="tooltipShow" effect="light" :content="item.ctx" placement="bottom" class="row-tooltip">
-              <img src="../../assets/remark.png" alt="">
-            </el-tooltip>
+          <div v-if="item == row.props" :key="idx" class="item">
+            <slot :name="item" :data="item"></slot>
           </div>
         </template>
         <!-- 特殊内容的设置 -->
@@ -84,10 +81,6 @@ export default {
     specialRows: { // 特殊的td带提示
       type: Array,
       default: () => []
-    },
-    tooltipShow: {
-      type: Boolean,
-      default: true
     }
   },
   methods: {
@@ -96,12 +89,6 @@ export default {
     },
     selectionChange(val) {
       this.$emit('handle-check', val)
-    },
-    selectAllRows() { // 全选的切换
-      this.$refs.vTable.toggleAllSelection()
-    },
-    clearAll() { // 全选的清除
-      this.$refs.vTable.clearSelection()
     }
   }
 }

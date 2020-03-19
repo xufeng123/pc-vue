@@ -18,8 +18,13 @@
         :table-row="tableRow"
         :list-data="tableData"
         :special-rows="specialRows"
-        :tooltip-show="true"
       >
+        <template slot="id">
+          <span>88888888</span>
+          <el-tooltip effect="light" content="999999999" placement="bottom" class="row-tooltip">
+            <img src="../../assets/remark.png" alt="">
+          </el-tooltip>
+        </template>
       </v-table>
     </div>
     <div>
@@ -74,13 +79,7 @@ export default {
           name: 'name4'
         }
       ],
-      specialRows: [
-        {
-          props: 'id',
-          name: '编号',
-          ctx: '这个地方就是ID'
-        }
-      ],
+      specialRows: ['id'],
       specialKeys: ['id']
     }
   },
