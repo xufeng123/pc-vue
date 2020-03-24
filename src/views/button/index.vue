@@ -3,13 +3,13 @@
     <h3>基础用法</h3>
     <div class="btn-group">
       <div>
-        <v-button name="mini" type="normal" size="mini" />
+        <v-button name="mini" :loading="true" type="normal" size="mini" />
       </div>
       <div>
-        <v-button name="small" type="normal-bg" size="small" />
+        <v-button name="small" :loading="true" type="normal-bg" size="small" />
       </div>
       <div>
-        <v-button name="medium" type="del" size="medium" />
+        <v-button name="medium" :loading="true" type="del" size="medium" />
       </div>
       <div class="btn1">
         <v-button name="自定义" type="sb" />
@@ -18,7 +18,7 @@
     <h3>禁用状态</h3>
     <div class="btn-group">
       <div class="btn1">
-        <v-button name="篮框白底" disabled type="normal" />
+        <v-button name="篮框白底" disabled :loading="true" type="normal" />
       </div>
       <div class="btn1">
         <v-button name="蓝底白字" disabled type="normal-bg" />
@@ -75,7 +75,7 @@ export default {
         }
       }
       .btn1 {
-        width: 100px;
+        width: 120px;
         height: 40px;
         // line-height: 40px;
       }
