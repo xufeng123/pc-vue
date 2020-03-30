@@ -61,6 +61,11 @@ export default {
       }
     }
   },
+  watch: {
+    currentIndex(index) {
+      this.currentIndexImg = index
+    }
+  },
   created() {
     this.currentIndexImg = this.currentIndex
   },
@@ -112,6 +117,7 @@ export default {
       z-index: 888;
       img {
         max-width: 100%;
+        max-height: 100%;
       }
     }
     .close-icon {
