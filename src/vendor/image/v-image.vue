@@ -33,10 +33,6 @@ export default {
       type: Boolean,
       default: false
     },
-    bigUrl: {
-      type: String,
-      default: null
-    },
     imageList: {
       type: Array,
       default: () => []

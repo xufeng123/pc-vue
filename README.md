@@ -213,3 +213,41 @@
 | Event Name |   Description |    Parameters   |
 | :---:     |   :----:   |  :----:  |
 | `handle-check`  |  用户点击checkBox时触发  |  `function`  |
+
+### 10.查看大图
+
+#### Attributes
+
+| 属性       |   作用     |    type   |   可选值 | 默认值 |
+| :---:     |   :----:   |  :----:  |   :----:   |  :----:  |
+| `v-model` | `是否显示查看大图` | `Boolean` | -- | `false` |
+| `image-list` | `图片列表` | `Array` | -- | -- |
+| `current-index` | `图片下标` | `number` | -- | `0` |
+
+#### 使用方法
+
+```html
+<div v-for="(img, idx) in imgList" :key="idx" class="img-size">
+  <img v-lazy="img.url" @click="getBigImg(idx)">
+</div>
+<v-image v-model="dialogImgVisible" :image-list="imgList" :current-index="imgIdx"></v-image>
+```
+```js
+import vImage from '@/vendor/image/v-image'
+export default {
+  components: { vImage },
+  data() {
+    return {
+      imgList: [
+        {
+          url: '....'
+        },
+        {
+          url: '....'
+        }
+      ],
+      imgIdx: idx
+    }
+  }
+}
+```
