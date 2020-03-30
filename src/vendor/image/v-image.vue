@@ -4,12 +4,12 @@
     :visible.sync="show"
     class="img-dialog"
   >
-    <div style="width: 100%;height: 100%; position: relative;">
+    <div style="width: 100%;height: 100%; position: relative;" :class="{'left': leftShow, 'right': rightShow}" @mousemove="moveMouse" @mousedown="downMouse">
       <div class="close-icon" @click="closeImg">
         <i class="el-icon-close"></i>
       </div>
       <!-- <div :style="{backgroundImage: 'url(' + imageList[currentIndexImg].imageUrl + ')'}" class="img-big" @click="closeImg"> -->
-      <div class="img-big" @click="closeImg">
+      <div class="img-big">
         <img v-lazy="imageList[currentIndexImg]&&imageList[currentIndexImg].url">
       </div>
       <div v-if="currentIndexImg > 0" class="toggle-left" @click="pre">
@@ -48,7 +48,9 @@ export default {
   },
   data() {
     return {
-      currentIndexImg: 0
+      currentIndexImg: 0,
+      leftShow: false,
+      rightShow: false
     }
   },
   computed: {
@@ -70,6 +72,28 @@ export default {
     this.currentIndexImg = this.currentIndex
   },
   methods: {
+    moveMouse(event) {
+      // 左 > 100 < 400       右 > 650 < 900
+      if (event.clientX > 100 && event.clientX < 400 && this.currentIndexImg > 0) {
+        this.leftShow = true
+        this.rightShow = false
+      } else if (event.clientX < document.body.clientWidth - 100 && event.clientX > 650 && this.currentIndexImg < this.imageList.length - 1) {
+        this.leftShow = false
+        this.rightShow = true
+      } else {
+        this.leftShow = false
+        this.rightShow = false
+      }
+    },
+    downMouse() {
+      if (this.leftShow) {
+        this.pre()
+      } else if (this.rightShow) {
+        this.next()
+      } else {
+        this.closeImg()
+      }
+    },
     pre() {
       if (this.currentIndexImg > 0) {
         this.currentIndexImg -= 1
@@ -150,6 +174,12 @@ export default {
       img {
         width: 25px;
       }
+    }
+    .right {
+      cursor: url('http://www.dpfile.com/s/c/app/pic/i/gallery/btn-next.e757fdeea09d4483ade1007806377d68.cur'), default;
+    }
+    .left {
+      cursor: url('http://www.dpfile.com/s/c/app/pic/i/gallery/btn-prev.48d8d69074396e31ce5543047486441e.cur'), default;
     }
   }
 </style>
