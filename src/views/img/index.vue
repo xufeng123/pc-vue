@@ -30,6 +30,12 @@ export default {
         },
         {
           url: 'http://attachments.gfan.com/forum/attachments2/201301/29/125722eh9nj87bq20eq2e8.jpg1'
+        },
+        {
+          url: 'http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1212/10/c1/16491670_1355126816487.jpg'
+        },
+        {
+          url: 'http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1212/10/c1/16491670_1355126816487.jpg1'
         }
       ],
       dialogImgVisible: false
