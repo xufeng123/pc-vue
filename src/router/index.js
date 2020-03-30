@@ -21,6 +21,7 @@ import Form from '@/views/form/index'
 import Dialog from '@/views/dialog/index'
 import Time from '@/views/time/index'
 import Table from '@/views/table/index'
+import Img from '@/views/img/index'
 
 export const constantRoutes = [
   { path: '/login', component: Login, hidden: true },
@@ -99,6 +100,19 @@ export const constantRoutes = [
         name: 'Table',
         component: Table,
         meta: { title: 'table', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/img',
+    component: Layout,
+    children: [
+      {
+        path: 'img',
+        name: 'Img',
+        component: Img,
+        meta: { title: '查看大图', icon: 'form' }
       }
     ]
   },
