@@ -10,7 +10,7 @@
       </div>
       <!-- <div :style="{backgroundImage: 'url(' + imageList[currentIndexImg].imageUrl + ')'}" class="img-big" @click="closeImg"> -->
       <div class="img-big" @click="closeImg">
-        <img :src="imageList[currentIndexImg]&&imageList[currentIndexImg].url" />
+        <img v-lazy="imageList[currentIndexImg]&&imageList[currentIndexImg].url">
       </div>
       <div v-if="currentIndexImg > 0" class="toggle-left" @click="pre">
         <img src="../../assets/icon-left.png" alt="">

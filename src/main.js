@@ -15,6 +15,8 @@ import router from './router'
 import * as filters from './filters'
 // 自定义指令
 import * as directives from '@/directive'
+// 图片懒加载
+import VueLazyload from 'vue-lazyload'
 
 import '@/icons' // icon
 import '@/permission' // permission control
@@ -32,6 +34,12 @@ Object.keys(directives).forEach(key => {
 })
 
 Vue.config.productionTip = false
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'http://img.zcool.cn/community/01ae565972f1eaa8012193a3f58f8a.gif',
+  loading: 'http://img.zcool.cn/community/01ae565972f1eaa8012193a3f58f8a.gif' // 懒加载使用的图片
+})
 
 new Vue({
   el: '#app',
