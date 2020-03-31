@@ -1,7 +1,9 @@
 <template>
   <div class="img-page app-container">
-    <div v-for="(img, idx) in imgList" :key="idx" class="img-size">
-      <img v-lazy="img.url" @click="getBigImg(idx)">
+    <div class="img-size">
+      <div v-for="(img, idx) in imgList" :key="idx" class="img-div">
+        <img v-lazy="img.url" @click="getBigImg(idx)">
+      </div>
     </div>
     <div v-if="dialogImgVisible">
       <v-image v-model="dialogImgVisible" :image-list="imgList" :current-index="imgIdx"></v-image>
@@ -54,8 +56,15 @@ export default {
   .img-page {
     width: 100%;
     .img-size {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      .img-div {
+        margin-right: 20px;
+      }
       img {
-        width: 200px;
+        max-width: 300px;
+        max-height: 300px;
       }
     }
   }
