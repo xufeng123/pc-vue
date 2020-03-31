@@ -70,10 +70,10 @@ export default {
   methods: {
     moveMouse(event) {
       // 左 > 100 < 400       右 > 650 < 900
-      if (event.clientX > 100 && event.clientX < 400 && this.currentIndexImg > 0) {
+      if (event.clientX > 100 && event.clientX < 650 && this.currentIndexImg > 0) {
         this.leftShow = true
         this.rightShow = false
-      } else if (event.clientX < document.body.clientWidth - 100 && event.clientX > 650 && this.currentIndexImg < this.imageList.length - 1) {
+      } else if (event.clientX < document.body.clientWidth - 150 && event.clientX > 750 && this.currentIndexImg < this.imageList.length - 1) {
         this.leftShow = false
         this.rightShow = true
       } else {
