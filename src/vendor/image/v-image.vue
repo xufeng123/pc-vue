@@ -2,15 +2,15 @@
   <el-dialog
     title="查看图片"
     :visible.sync="show"
-    class="img-dialog"
+    class="v-image"
   >
-    <div style="width: 100%;height: 100%; position: relative;" :class="{'left': leftShow, 'right': rightShow}" @mousemove="moveMouse" @mousedown="downMouse">
+    <div :class="['v-image-div', {'left': leftShow, 'right': rightShow}]" @mousemove="moveMouse" @mousedown="downMouse">
       <div class="close-icon" @click="closeImg">
         <i class="el-icon-close"></i>
       </div>
       <!-- <div :style="{backgroundImage: 'url(' + imageList[currentIndexImg].imageUrl + ')'}" class="img-big" @click="closeImg"> -->
       <div class="img-big">
-        <img v-lazy="imageList[currentIndexImg]&&imageList[currentIndexImg].url">
+        <img v-lazy="imageList[currentIndexImg] && imageList[currentIndexImg].url">
       </div>
       <div v-if="currentIndexImg > 0" class="toggle-left" @click="pre">
         <img src="../../assets/icon-left.png" alt="">
@@ -23,7 +23,7 @@
 </template>
 <script>
 export default {
-  name: 'Preview',
+  name: 'VImage',
   model: {
     prop: 'dialogImgVisible',
     event: 'close'
@@ -86,8 +86,6 @@ export default {
         this.pre()
       } else if (this.rightShow) {
         this.next()
-      } else {
-        this.closeImg()
       }
     },
     pre() {
@@ -107,7 +105,12 @@ export default {
 }
 </script>
 <style lang="scss">
-  .img-dialog {
+  .v-image {
+    .v-image-div {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
     .el-dialog {
       width: 100%;
       height: 100%;
