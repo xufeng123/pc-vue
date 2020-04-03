@@ -3,25 +3,24 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 /* Layout */
-import Layout from '@/layout'
-
-import Login from '@/views/login/index'
-import BadPage from '@/views/404'
-import Dashboard from '@/views/dashboard/index'
-import Menu1 from '@/views/nested/menu1/index'
-import Menu11 from '@/views/nested/menu1/menu1-1'
-import Menu12 from '@/views/nested/menu1/menu1-2'
-import Menu121 from '@/views/nested/menu1/menu1-2/menu1-2-1'
-import Menu122 from '@/views/nested/menu1/menu1-2/menu1-2-2'
-import Menu13 from '@/views/nested/menu1/menu1-3'
-import Menu2 from '@/views/nested/menu2/index'
-
-import Button from '@/views/button/index'
-import Form from '@/views/form/index'
-import Dialog from '@/views/dialog/index'
-import Time from '@/views/time/index'
-import Table from '@/views/table/index'
-import Img from '@/views/img/index'
+// import Layout from '@/layout'
+const Layout = resolve => require(['@/layout'], resolve)
+const Login = resolve => require(['@/views/login/index'], resolve)
+const BadPage = resolve => require(['@/views/404'], resolve)
+const Dashboard = resolve => require(['@/views/dashboard/index'], resolve)
+const Menu1 = resolve => require(['@/views/nested/menu1/index'], resolve)
+const Menu11 = resolve => require(['@/views/nested/menu1/menu1-1'], resolve)
+const Menu12 = resolve => require(['@/views/nested/menu1/menu1-2'], resolve)
+const Menu121 = resolve => require(['@/views/nested/menu1/menu1-2/menu1-2-1'], resolve)
+const Menu122 = resolve => require(['@/views/nested/menu1/menu1-2/menu1-2-2'], resolve)
+const Menu13 = resolve => require(['@/views/nested/menu1/menu1-3'], resolve)
+const Menu2 = resolve => require(['@/views/nested/menu2/index'], resolve)
+const Button = resolve => require(['@/views/button/index'], resolve)
+const Form = resolve => require(['@/views/form/index'], resolve)
+const Dialog = resolve => require(['@/views/dialog/index'], resolve)
+const Time = resolve => require(['@/views/time/index'], resolve)
+const Table = resolve => require(['@/views/table/index'], resolve)
+const Img = resolve => require(['@/views/img/index'], resolve)
 
 export const constantRoutes = [
   { path: '/login', component: Login, hidden: true },
