@@ -18,6 +18,12 @@
         <el-form-item label="不允许输入特殊符号和中文" prop="noZh">
           <el-input v-model="ruleForm.noZh" v-reg-input:noZh placeholder="不允许输入特殊符号和中文" class="input-width"></el-input>
         </el-form-item>
+        <el-form-item label="不允许空格" prop="noZh">
+          <el-input v-model="ruleForm.blank" v-reg-input:blank placeholder="不允许空格" class="input-width"></el-input>
+        </el-form-item>
+        <el-form-item label="输入价格的正则" prop="noZh">
+          <el-input v-model="ruleForm.price" v-reg-input:price placeholder="请输入正确的价格" class="input-width"></el-input>
+        </el-form-item>
         <el-form-item label="正则匹配" prop="phone">
           <el-input v-model="ruleForm.phone" v-reg-input:num placeholder="手机号正则匹配" class="input-width"></el-input>
         </el-form-item>
@@ -71,7 +77,9 @@ export default {
         spl: '',
         noZh: '',
         phone: '',
-        letter: ''
+        letter: '',
+        blank: '',
+        price: ''
       },
       rules: {
         point: [
@@ -84,6 +92,12 @@ export default {
           { required: true, message: '请输入', trigger: 'blur' }
         ],
         noZh: [
+          { required: true, message: '请输入', trigger: 'blur' }
+        ],
+        blank: [
+          { required: true, message: '请输入', trigger: 'blur' }
+        ],
+        price: [
           { required: true, message: '请输入', trigger: 'blur' }
         ],
         phone: [

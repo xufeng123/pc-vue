@@ -7,10 +7,18 @@
  * noZh: 不允许输入特殊符号和中文
  * minus: 允许输入正负数
  * minusPoint: 允许输入两位小数的正负数
+ * blank: 不允许输入空格
  */
 const RegInput = {
   inserted(el, binding) {
-    var input = el.getElementsByTagName('input')[0] ? el.getElementsByTagName('input')[0] : el
+    var input
+    if (el.getElementsByTagName('input')[0]) {
+      input = el.getElementsByTagName('input')[0]
+    } else if (el.getElementsByTagName('textarea')[0]) {
+      input = el.getElementsByTagName('textarea')[0]
+    } else {
+      input = el
+    }
     var reg = null
     if (binding.arg === 'num') {
       reg = /^\d*/g
@@ -28,9 +36,15 @@ const RegInput = {
       reg = /^(-?)\d*(\.?\d{0,2})/g
     } else if (binding.arg === 'blank') {
       reg = /\s+/g
+    } else if (binding.arg === 'price') {
+      reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     }
     el.addEventListener('input', function() {
-      input.value = input.value.match(reg, '')
+      if (binding.arg === 'blank') {
+        input.value = input.value.replace(reg, '')
+      } else {
+        input.value = input.value.match(reg, '')
+      }
     })
   }
 }
