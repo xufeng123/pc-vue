@@ -8,6 +8,7 @@
  * minus: 允许输入正负数
  * minusPoint: 允许输入两位小数的正负数
  * blank: 不允许输入空格
+ * price: 输入价格的正则（整数，两位小数）
  */
 const RegInput = {
   inserted(el, binding) {
