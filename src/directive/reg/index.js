@@ -26,6 +26,8 @@ const RegInput = {
       reg = /^(-?)\d*/g
     } else if (binding.arg === 'minusPoint') {
       reg = /^(-?)\d*(\.?\d{0,2})/g
+    } else if (binding.arg === 'blank') {
+      reg = /\s+/g
     }
     el.addEventListener('input', function() {
       input.value = input.value.match(reg, '')

@@ -2,7 +2,10 @@
   <div :class="['v-button', 'v-button__' + size, 'v-button__' + type, disabled ? 'v-button__' + type + '-disabled' : '']" @click.stop="handelClick">
     <div class="v-button__name">
       <span v-if="disabled && loading"><i class="el-icon-loading"></i></span>
-      <span>{{ name }}</span>
+      <span>
+        <slot name="iconBtn"></slot>
+        {{ name }}
+      </span>
     </div>
   </div>
 </template>

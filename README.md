@@ -11,6 +11,10 @@
 | `sizi`      |    按钮大小      |  `String`     | `medium(注：padding: 13px 16px) / mini(注：padding: 6px 12px) / small(注：padding: 9px 16px)` |  —     |
 | `type`      |    按钮的颜色     |  `String`     | `normal （注：篮框白底）/ normal-bg（注：蓝底白字） / del（注：橙色） / sb（注：淡蓝）` |  `normal`    |
 | `disabled`  |    不可点击的状态  |   `Boolean`   |  —     | —     |
+#### Slot
+| 参数       |     说明       |
+| :---:     |     :----:      |
+| iconBtn | 按钮的icon |
 #### 使用方法
 ```js
   import vButton from '@/vendor/button/v-button'
