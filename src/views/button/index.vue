@@ -50,6 +50,9 @@ export default {
       btnFlag: false
     }
   },
+  created() {
+    console.warn('-------inputPage----------')
+  },
   methods: {
     handleActive() {
       this.btnFlag = true

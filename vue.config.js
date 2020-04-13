@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin') // cnpm install uglifyjs-webpack-plugin@1 --save-dev
 const defaultSettings = require('./src/settings.js')
 
 function resolve(dir) {
@@ -13,7 +14,7 @@ const name = defaultSettings.title || 'vue Admin Template' // page title
 // For example, Mac: sudo npm run
 // You can change the port by the following methods:
 // port = 9528 npm run dev OR npm run dev --port = 9528
-const port = process.env.port || process.env.npm_config_port || 9888 // dev port
+const port = process.env.port || process.env.npm_config_port || 9666 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
@@ -49,15 +50,36 @@ module.exports = {
     },
     after: require('./mock/mock-server.js')
   },
-  configureWebpack: {
+  configureWebpack: config => {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
-    name: name,
-    resolve: {
-      alias: {
-        '@': resolve('src')
+    const configObj = {
+      name: name,
+      resolve: {
+        alias: {
+          '@': resolve('src')
+        }
       }
     }
+    if (process.env.ENV === "production") {
+      // 为生产环境修改配置...
+      config.mode = 'production'
+      // 这里修改下
+       config.optimization.minimizer = [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              drop_console: true, //console
+              drop_debugger: true,
+              pure_funcs: ['console.log', 'console.warn'] //移除console
+            }
+          }
+        })
+      ]
+    } else {
+      config.mode = 'development'
+    }
+    return configObj
   },
   chainWebpack(config) {
     config.plugins.delete('preload') // TODO: need test
