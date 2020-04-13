@@ -35,26 +35,6 @@ export function checkEmail(rule, value, callback) {
   }
 }
 /**
- * 证件号（只允许输入字母数字）
- * @param {*} rule
- * @param {*} value
- * @param {*} callback
- */
-export function checkCard(rule, value, callback) {
-  let msg, myreg
-  if (value) {
-    myreg = /^[a-zA-Z0-9]+$/
-    msg = '请输入正确的证件号'
-    if (value.match(myreg) == null) {
-      return callback(new Error(msg))
-    } else {
-      callback()
-    }
-  } else {
-    callback()
-  }
-}
-/**
  * 身份证校验
  * @param {*} rule
  * @param {*} value

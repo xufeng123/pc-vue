@@ -21,13 +21,10 @@
         <el-form-item label="不允许空格" prop="noZh">
           <el-input v-model="ruleForm.blank" v-reg-input:blank placeholder="不允许空格" class="input-width"></el-input>
         </el-form-item>
-        <el-form-item label="输入价格的正则" prop="noZh">
-          <el-input v-model="ruleForm.price" v-reg-input:price placeholder="请输入正确的价格" class="input-width"></el-input>
-        </el-form-item>
-        <el-form-item label="正则匹配" prop="phone">
+        <el-form-item label="正则匹配-手机号" prop="phone">
           <el-input v-model="ruleForm.phone" v-reg-input:num placeholder="手机号正则匹配" class="input-width"></el-input>
         </el-form-item>
-        <el-form-item label="正则匹配" prop="letter">
+        <el-form-item label="正则匹配-字母" prop="letter">
           <el-input v-model="ruleForm.letter" placeholder="匹配所有字母" class="input-width"></el-input>
         </el-form-item>
       </el-form>
@@ -71,6 +68,7 @@ export default {
     }
     return {
       ruleForm: {
+        regTest: '',
         number: '',
         point: '',
         noNum: '',

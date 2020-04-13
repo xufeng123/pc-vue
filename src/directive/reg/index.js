@@ -8,7 +8,6 @@
  * minus: 允许输入正负数
  * minusPoint: 允许输入两位小数的正负数
  * blank: 不允许输入空格
- * price: 输入价格的正则（整数，两位小数）
  */
 const RegInput = {
   inserted(el, binding) {
@@ -25,6 +24,7 @@ const RegInput = {
       reg = /^\d*/g
     } else if (binding.arg === 'point') {
       reg = /^\d*(\.?\d{0,2})/g
+      // reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     } else if (binding.arg === 'NAN') {
       reg = /^[a-zA-Z_\u4e00-\u9fa5]*/g
     } else if (binding.arg === 'spl') {
@@ -37,8 +37,6 @@ const RegInput = {
       reg = /^(-?)\d*(\.?\d{0,2})/g
     } else if (binding.arg === 'blank') {
       reg = /\s+/g
-    } else if (binding.arg === 'price') {
-      reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     }
     el.addEventListener('input', function() {
       if (binding.arg === 'blank') {
