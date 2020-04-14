@@ -53,31 +53,31 @@ module.exports = {
   configureWebpack: config => {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
+    const plugins = []
+    if (process.env.ENV === "production") {
+      // 为生产环境修改配置...
+      config.mode = 'production'
+      // 这里修改下
+      plugins.push(new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_console: true, //console
+            drop_debugger: true,
+            pure_funcs: ['console.log', 'console.warn'] //移除console
+          }
+        }
+      }))
+    } else {
+      config.mode = 'development'
+    }
     const configObj = {
       name: name,
       resolve: {
         alias: {
           '@': resolve('src')
         }
-      }
-    }
-    if (process.env.ENV === "production") {
-      // 为生产环境修改配置...
-      config.mode = 'production'
-      // 这里修改下
-       config.optimization.minimizer = [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: {
-              drop_console: true, //console
-              drop_debugger: true,
-              pure_funcs: ['console.log', 'console.warn'] //移除console
-            }
-          }
-        })
-      ]
-    } else {
-      config.mode = 'development'
+      },
+      plugins: plugins
     }
     return configObj
   },

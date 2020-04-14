@@ -27,6 +27,9 @@
         <el-form-item label="正则匹配-字母" prop="letter">
           <el-input v-model="ruleForm.letter" placeholder="匹配所有字母" class="input-width"></el-input>
         </el-form-item>
+        <el-form-item label="计算长度" prop="word">
+          <el-input v-model="ruleForm.word" placeholder="计算输入的长度" class="input-width"></el-input>
+        </el-form-item>
       </el-form>
     </div>
     <div class="form-btn">
@@ -37,6 +40,7 @@
 
 <script>
 import vButton from '@/vendor/button/v-button'
+import { getLength } from '@/utils/utils'
 
 export default {
   components: { vButton },
@@ -77,7 +81,8 @@ export default {
         phone: '',
         letter: '',
         blank: '',
-        price: ''
+        price: '',
+        word: ''
       },
       rules: {
         point: [
@@ -105,6 +110,11 @@ export default {
           { validator: checkLetter, trigger: 'blur' }
         ]
       }
+    }
+  },
+  watch: {
+    'ruleForm.word'(val) {
+      console.warn(getLength(val), '00000000')
     }
   },
   methods: {
