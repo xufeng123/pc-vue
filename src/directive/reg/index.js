@@ -10,7 +10,7 @@
  * blank: 不允许输入空格
  */
 const RegInput = {
-  inserted(el, binding) {
+  inserted(el, binding, VNode) {
     var input
     if (el.getElementsByTagName('input')[0]) {
       input = el.getElementsByTagName('input')[0]
@@ -38,12 +38,14 @@ const RegInput = {
     } else if (binding.arg === 'blank') {
       reg = /\s+/g
     }
+    const vNodeInstance = VNode.componentInstance // 获取当前元素的vue实例
     el.addEventListener('input', function() {
       if (binding.arg === 'blank') {
         input.value = input.value.replace(reg, '')
       } else {
         input.value = input.value.match(reg, '')
       }
+      vNodeInstance.$emit('input', input.value)
     })
   }
 }

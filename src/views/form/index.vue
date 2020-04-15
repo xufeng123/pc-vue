@@ -114,7 +114,7 @@ export default {
   },
   watch: {
     'ruleForm.word'(val) {
-      console.warn(getLength(val), '00000000')
+      console.warn(getLength(val))
     }
   },
   methods: {
