@@ -18,7 +18,7 @@
         <el-form-item label="不允许输入特殊符号和中文" prop="noZh">
           <el-input v-model="ruleForm.noZh" v-reg-input:noZh placeholder="不允许输入特殊符号和中文" class="input-width"></el-input>
         </el-form-item>
-        <el-form-item label="不允许空格" prop="noZh">
+        <el-form-item label="不允许空格" prop="blank">
           <el-input v-model="ruleForm.blank" v-reg-input:blank placeholder="不允许空格" class="input-width"></el-input>
         </el-form-item>
         <el-form-item label="正则匹配-手机号" prop="phone">
