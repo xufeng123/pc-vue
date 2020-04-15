@@ -10,6 +10,20 @@
  * blank: 不允许输入空格
  */
 const RegInput = {
+  inserted(el, binding, vNode) {
+    var input
+    if (el.getElementsByTagName('input')[0]) {
+      input = el.getElementsByTagName('input')[0]
+    } else if (el.getElementsByTagName('textarea')[0]) {
+      input = el.getElementsByTagName('textarea')[0]
+    } else {
+      input = el
+    }
+    const vNodeInstance = vNode.componentInstance // 获取当前元素的vue实例
+    vNodeInstance.$on('clear', () => {
+      input.value = ''
+    })
+  },
   update(el, binding, vNode) {
     var input
     if (el.getElementsByTagName('input')[0]) {
@@ -23,8 +37,8 @@ const RegInput = {
     if (binding.arg === 'num') {
       reg = /^\d*/g
     } else if (binding.arg === 'point') {
-      reg = /^\d*(\.?\d{0,2})/g
-      // reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
+      // reg = /^\d*(\.?\d{0,2})/g
+      reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     } else if (binding.arg === 'NAN') {
       reg = /^[a-zA-Z_\u4e00-\u9fa5]*/g
     } else if (binding.arg === 'spl') {
@@ -49,7 +63,7 @@ const RegInput = {
       }
       input.dispatchEvent(new Event('input'))
     } catch (e) {
-      console.warn(e, '000')
+      console.warn(e, 'reg-input')
     }
   }
 }
