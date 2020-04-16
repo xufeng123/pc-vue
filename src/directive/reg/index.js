@@ -38,7 +38,7 @@ const RegInput = {
       reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     }
     const vNodeInstance = vNode.componentInstance // 获取当前元素的vue实例
-    el.addEventListener('input', function() {
+    input.addEventListener('input', function() {
       input.value = input.value.match(reg, '')
       vNodeInstance.$emit('input', input.value)
     })
