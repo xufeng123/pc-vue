@@ -7,24 +7,10 @@
  * noZh: 不允许输入特殊符号和中文
  * minus: 允许输入正负数
  * minusPoint: 允许输入两位小数的正负数
- * blank: 不允许输入空格
+ * price: 输入价格的正则（整数，两位小数）
  */
 const RegInput = {
   inserted(el, binding, vNode) {
-    var input
-    if (el.getElementsByTagName('input')[0]) {
-      input = el.getElementsByTagName('input')[0]
-    } else if (el.getElementsByTagName('textarea')[0]) {
-      input = el.getElementsByTagName('textarea')[0]
-    } else {
-      input = el
-    }
-    const vNodeInstance = vNode.componentInstance // 获取当前元素的vue实例
-    vNodeInstance.$on('clear', () => {
-      input.value = ''
-    })
-  },
-  update(el, binding, vNode) {
     var input
     if (el.getElementsByTagName('input')[0]) {
       input = el.getElementsByTagName('input')[0]
@@ -37,8 +23,7 @@ const RegInput = {
     if (binding.arg === 'num') {
       reg = /^\d*/g
     } else if (binding.arg === 'point') {
-      // reg = /^\d*(\.?\d{0,2})/g
-      reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
+      reg = /^\d*(\.?\d{0,2})/g
     } else if (binding.arg === 'NAN') {
       reg = /^[a-zA-Z_\u4e00-\u9fa5]*/g
     } else if (binding.arg === 'spl') {
@@ -49,22 +34,14 @@ const RegInput = {
       reg = /^(-?)\d*/g
     } else if (binding.arg === 'minusPoint') {
       reg = /^(-?)\d*(\.?\d{0,2})/g
-    } else if (binding.arg === 'blank') {
-      reg = /\s+/g
+    } else if (binding.arg === 'price') {
+      reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}/g
     }
-    try {
-      if (!input.value) {
-        return false
-      }
-      if (binding.arg === 'blank') {
-        input.value = input.value.replace(reg, '')
-      } else {
-        input.value = input.value.match(reg, '')
-      }
-      input.dispatchEvent(new Event('input'))
-    } catch (e) {
-      console.warn(e, 'reg-input')
-    }
+    const vNodeInstance = vNode.componentInstance // 获取当前元素的vue实例
+    el.addEventListener('input', function() {
+      input.value = input.value.match(reg, '')
+      vNodeInstance.$emit('input', input.value)
+    })
   }
 }
 

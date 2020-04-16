@@ -4,7 +4,7 @@
     <div class="input-group">
       <el-form ref="form" :model="ruleForm" :rules="rules" label-width="200px">
         <el-form-item label="只允许输入数字">
-          <el-input v-model="ruleForm.number" v-reg-input:num placeholder="只允许输入数字" class="input-width"></el-input>
+          <el-input v-model="ruleForm.number" v-reg-input:num placeholder="只允许输入数字" clearable class="input-width"></el-input>
         </el-form-item>
         <el-form-item label="允许输入两位小数" prop="point">
           <el-input v-model="ruleForm.point" v-reg-input:point placeholder="允许输入两位小数" class="input-width"></el-input>
