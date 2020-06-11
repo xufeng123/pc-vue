@@ -21,6 +21,8 @@ const Dialog = resolve => require(['@/views/dialog/index'], resolve)
 const Time = resolve => require(['@/views/time/index'], resolve)
 const Table = resolve => require(['@/views/table/index'], resolve)
 const Img = resolve => require(['@/views/img/index'], resolve)
+const Proxy = resolve => require(['@/views/proxy/index'], resolve)
+const Arithmetic = resolve => require(['@/views/arithmetic/index'], resolve)
 
 export const constantRoutes = [
   { path: '/login', component: Login, hidden: true },
@@ -36,6 +38,32 @@ export const constantRoutes = [
       component: Dashboard,
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
+  },
+
+  {
+    path: '/arithmetic',
+    component: Layout,
+    children: [
+      {
+        path: '/arithmetic',
+        name: 'Arithmetic',
+        component: Arithmetic,
+        meta: { title: '算法', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/proxy',
+    component: Layout,
+    children: [
+      {
+        path: '/proxy',
+        name: 'Proxy',
+        component: Proxy,
+        meta: { title: 'proxy', icon: 'form' }
+      }
+    ]
   },
 
   {
